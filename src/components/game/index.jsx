@@ -1,26 +1,40 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "./index.css";
 
 const Game = (props) => {
-  console.log("name: ", props);
+  const date = new Date(props.released);
+  const options = { year: "numeric", month: "short", day: "numeric" };
+  const formattedDate = date.toLocaleDateString(undefined, options);
+
   return (
-    <div>
-    <NavLink to={`/detail/${props.id}`}>
-      {props.name && (
-        <div key={props.id}>
-          <div>{props.name}</div>
-          <img src={props.background_image} alt={props.name} />
-          <div>{props.released}</div>
-          <div>{props.rating}</div>
-          <div>{props.playtime}</div>
-          <div>{props.owned}</div>
-          <div>{props.rating_top}</div>
-          <div>{props.esrb_rating}</div>
+    <>
+      <NavLink className="link" to={`/detail/${props.id}`}>
+        <div className="game-card">
+          {props.name && (
+            <>
+              <div className="game-details">
+                <p className="nombre">{props.name}</p>
+                <p className="released">Premier: {formattedDate}</p>
+                <p className="playtime">Playtime: {props.playtime}</p>
+                <p className="esrb_rating">ESRB: {props.esrb_rating}</p>
+                <p className="rating_top">{props.rating_top}</p>
+              </div>
+              <div className="contenedor-imagen">
+                <img
+                  className="game-image"
+                  src={props.background_image}
+                  alt={props.name}
+                />
+              </div>
+            </>
+          )}
         </div>
-      )}
-    </NavLink>
-      <button onClick={props.onClose}>x</button>
-    </div>
+      </NavLink>
+      <button className="cerrar" onClick={() => props.onClose(props.id)}>
+        X
+      </button>
+    </>
   );
 };
 

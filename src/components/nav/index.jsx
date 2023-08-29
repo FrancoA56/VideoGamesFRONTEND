@@ -10,17 +10,17 @@ const Nav = ({ onSearch }) => {
       
         return (
           <>
-            <div>
-              <div>
-                <NavLink as={NavLink} to="/home">
+            <div className="nav-container">
+              <h1 className="titulo">Videogames!</h1>
+              {showSearchBar && <SearchBar className="search-bar" onSearch={onSearch} />}
+              <div className="botones">
+                <NavLink className="botonHome" as={NavLink} to="/home">
                   Home
                 </NavLink>
-                <NavLink as={NavLink} to="/login">
-                  Cerrar Sesion
+                <NavLink className="botonSalir" as={NavLink} to="/login">
+                  Log Out
                 </NavLink>
               </div>
-              <h1>Videogames!</h1>
-              {showSearchBar && <SearchBar onSearch={onSearch} />}
             </div>
           </>
         );

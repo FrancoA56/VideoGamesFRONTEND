@@ -1,0 +1,10 @@
+@import "../../utils/varibles.css";
+
+.juego {
+    margin-top: 151px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 85%;
+    margin-left: 300px;
+    justify-content: space-around;
+  }

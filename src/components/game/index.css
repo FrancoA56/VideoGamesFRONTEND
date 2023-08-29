@@ -1,0 +1,82 @@
+@import "../../utils/varibles.css";
+
+.released {
+  color: var(--color-texto);
+  font-size: var(--tamanio-texto);
+  margin: 5px 0px;
+
+}
+.playtime {
+  color: var(--color-texto);
+  font-size: var(--tamanio-texto);
+  margin: 5px 0px;
+
+}
+.esrb_rating {
+  color: var(--color-texto);
+  font-size: var(--tamanio-texto);
+  margin: 5px 0px;
+
+}
+.rating_top {
+  color: var(--color-texto);
+  font-size: var(--tamanio-texto);
+  margin: 5px 0px;
+}
+
+.nombre {
+  color: var(--color-texto);
+  font-size: var(--tamanio-nombre);
+  margin: 5px 0px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.game-card {
+  width: 700px;
+  height: 250px;
+  display: flex;
+  margin: 20px;
+  flex-direction: row;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.cerrar{
+  position: relative;
+  bottom: 275px;
+  left: 338px;
+  cursor: pointer;
+}
+
+.link{
+  text-decoration: none;
+}
+
+.contenedor-imagen{
+  width: 350px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.game-details {
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 320px;
+}
+
+.game-image {
+  width: 100%;
+  height: 100%;
+}

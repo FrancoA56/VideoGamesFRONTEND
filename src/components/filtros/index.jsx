@@ -1,11 +1,11 @@
 import "./index.css";
 import React from "react";
 
-const Filtros = ({ onSearch }) => {
+const Filtros = () => {
 
   return (
     
-      <div>
+      <div className="filter-container">
         filtros...
           
       </div>

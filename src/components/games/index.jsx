@@ -1,27 +1,28 @@
-import Game from '../game/index';
-import React from 'react';
+import Game from "../game/index";
+import React from "react";
+import "./index.css";
 
-
-export default function Games({isGame , onClose}) {
-   console.log("Games:", isGame)
-   return (
-   <div>
-      {isGame.map((juegos) => juegos.map((juego) =>{
-         return(
+export default function Games({ isGame, onClose }) {
+  return (
+    <div className="juego">
+      {isGame.map((juegos) => {
+        return (
+          <div key={juegos.id}>
             <Game
-               key={juego.ID}
-               id={juego.ID}
-               background_image={juego.background_image}
-               name={juego.name}
-               released={juego.released}
-               owned={juego.owned}
-               playtime={juego.playtime}
-               rating={juego.rating}
-               rating_top={juego.rating_top}
-               esrb_rating={juego.esrb_rating}
-               onClose={onClose}
-               />
-         )
-      }))}
-   </div>)
+              id={juegos.id}
+              background_image={juegos.background_image}
+              name={juegos.name}
+              released={juegos.released}
+              owned={juegos.owned}
+              playtime={juegos.playtime}
+              rating={juegos.rating}
+              rating_top={juegos.rating_top}
+              esrb_rating={juegos.esrb_rating}
+              onClose={onClose}
+            />
+          </div>
+        );
+      })}
+    </div>
+  );
 }

@@ -20,15 +20,18 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <div>
-      <input
+    <div className="search-bar">
+      <input 
+        className="input"
         type="search"
         value={searchValue}
         onChange={handleOnChange}
         onKeyDown={handleKeyPress}
-        placeholder="ID o Name"
+        placeholder="Insert Name"
       />
-      <button onClick={handleSearch}>Agregar</button>
+      <button className="button" onClick={handleSearch}>
+        <i className="material-icons">search</i>
+      </button>
     </div>
   );
 };
