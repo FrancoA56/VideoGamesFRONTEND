@@ -6,24 +6,27 @@ import Filtros from "./components/filtros";
 import Nav from "./components/nav";
 import Games from "./components/games";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { addGame } from "./Redux/actions";
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 function App() {
   const location = useLocation();
+  const dispatch = useDispatch();
+  const JUEGOS = useSelector((state) => state.myGames);
   const showNavLogin = location.pathname === "/login";
   const showNavRegister = location.pathname === "/register";
   const showOnDetail = location.pathname === "/detail";
   const showOnAbout = location.pathname === "/about";
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
-  const [isGame, setIsGame] = useState([]);
 
   const URL = "http://localhost:3001/";
 
   useEffect(() => {
     if (!access && !showNavRegister) {
-      navigate("/home");
+      navigate("/login");
     }
   }, [access, navigate, showNavRegister]);
 
@@ -53,21 +56,21 @@ function App() {
     try {
       const response = await axios(`${URL}home/${slug}`);
       const { data } = response;
-      data.map((juego) => {
-        if (isGame.some((jue) => jue.id === juego.id))
-          return Error("Some game has already been searched");
-        else {
-          setIsGame((oldGames) => [...oldGames, juego]);
-        }
-        return [...isGame, juego];
-      });
+
+      // Verifico si algún juego con el mismo id ya está en el estado
+      const newGames = data.filter(
+        (juego) => !JUEGOS.some((existingGame) => existingGame.id === juego.id)
+      );
+
+      // Si hay nuevos juegos los agrego al estado global
+      if (newGames.length > 0) {
+        dispatch(addGame(newGames));
+      } else {
+        window.alert("Todos los juegos buscados ya están en la lista.");
+      }
     } catch (error) {
       window.alert(error.message);
     }
-  }
-
-  function onClose(id) {
-    setIsGame((oldGames) => oldGames.filter((gam) => gam.id !== Number(id)));
   }
 
   return (
@@ -79,10 +82,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login login={login} />} />
         <Route path="/register" element={<Register register={register} />} />
-        <Route
-          path="/home"
-          element={<Games isGame={isGame} onClose={onClose} />}
-        />
+        <Route path="/home" element={<Games />} />
         <Route path="/detail/:id" element={<Detail />} />
       </Routes>
     </div>

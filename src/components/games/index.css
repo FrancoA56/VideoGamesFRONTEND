@@ -1,10 +1,23 @@
 @import "../../utils/varibles.css";
 
 .juego {
-    margin-top: 151px;
-    display: flex;
-    flex-wrap: wrap;
-    width: 85%;
-    margin-left: 300px;
-    justify-content: space-around;
-  }
+  margin-top: 151px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  margin-left: 300px;
+  justify-content: space-around;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url("../../utils/imagenes-videogames/horizon_forbidden_west___screenshot_09_by_wowan14_dfspijj.png");
+  background-size: cover;
+  background-position: center;
+}
+

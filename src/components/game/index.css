@@ -4,18 +4,21 @@
   color: var(--color-texto);
   font-size: var(--tamanio-texto);
   margin: 5px 0px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 
 }
 .playtime {
   color: var(--color-texto);
   font-size: var(--tamanio-texto);
   margin: 5px 0px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 
 }
 .esrb_rating {
   color: var(--color-texto);
   font-size: var(--tamanio-texto);
   margin: 5px 0px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 
 }
 .rating_top {
@@ -32,6 +35,8 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
 }
 
 .game-card {
@@ -41,10 +46,15 @@
   margin: 20px;
   flex-direction: row;
   border: 1px solid #ccc;
-  background-color: #fff;
+  background-color: #00000069;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   justify-content: space-between;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 30px rgba(0, 0, 0);
+  transition: transform 0.3s;
+}
+
+.game-card:hover {
+  transform: scale(1.2);
 }
 
 .cerrar{
@@ -54,7 +64,7 @@
   cursor: pointer;
 }
 
-.link{
+.linko {
   text-decoration: none;
 }
 

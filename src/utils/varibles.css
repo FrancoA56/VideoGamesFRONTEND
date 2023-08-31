@@ -1,8 +1,8 @@
 :root {
     --color-titulo: #000000;
-    --color-texto: #000000;
+    --color-texto: #ffffff;
     --color-fondo: #0e11d1;
     --color-input: #0004ff; 
-    --tamanio-texto: 24px;
+    --tamanio-texto: 30px;
     --tamanio-nombre: 30px;
 }

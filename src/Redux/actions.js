@@ -1,14 +1,21 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from "./types";
+import { CREATE_GAME,
+  ADD_GAME,
+  REMOVE_GAME,
+  ORDER_NAME,
+  ORDER_RATING,
+  ORDER_OWNED,
+  ORDER_RELEASED,
+  ORDER_ESRB_RATING } from "./types";
 import axios from "axios";
 
-const URL = "http://localhost:3001/rickandmorty/fav";
+const URL = "http://localhost:3001/";
 
-export const addFav = (personaje) => {
+export const createGame = (juego) => {
   return async function (dispatch) {
     try {
-      const { data } = await axios.post(`${URL}`, personaje);
+      const { data } = await axios.post(`${URL}createGame`, juego);
       return dispatch({
-        type: ADD_FAV,
+        type: CREATE_GAME,
         payload: data,
       });
     } catch (error) {
@@ -17,12 +24,11 @@ export const addFav = (personaje) => {
   };
 };
 
-export const removeFav = (id) => {
-  return async (dispatch) => {
+export const addGame = (data) => {
+  return  function (dispatch) {
     try {
-      const { data } = await axios.delete(`${URL}/${id}`);
       return dispatch({
-        type: REMOVE_FAV,
+        type: ADD_GAME,
         payload: data,
       });
     } catch (error) {
@@ -31,16 +37,41 @@ export const removeFav = (id) => {
   };
 };
 
-export const filterCards = (gender) => {
+export const removeGame = (id) => {
+      return {
+        type: REMOVE_GAME,
+        payload: id,
+      };
+};
+
+export const orderByName = (name) => {
   return {
-    type: FILTER,
-    payload: gender,
+    type: ORDER_NAME,
+    payload: name,
   };
 };
 
-export const orderCards = (orden) => {
+export const orderByRating = (rating_top) => {
   return {
-    type: ORDER,
-    payload: orden,
+    type: ORDER_RATING,
+    payload: rating_top,
+  };
+};
+export const orderBySales = (owned) => {
+  return {
+    type: ORDER_OWNED,
+    payload: owned,
+  };
+};
+export const orderByReleased = (released) => {
+  return {
+    type: ORDER_RELEASED,
+    payload: released,
+  };
+};
+export const orderByEsrbRating = (esrb_rating) => {
+  return {
+    type: ORDER_ESRB_RATING,
+    payload: esrb_rating,
   };
 };

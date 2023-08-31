@@ -11,7 +11,7 @@ const Nav = ({ onSearch }) => {
         return (
           <>
             <div className="nav-container">
-              <h1 className="titulo">Videogames!</h1>
+              <h1 className="gamescon">GamesCon!</h1>
               {showSearchBar && <SearchBar className="search-bar" onSearch={onSearch} />}
               <div className="botones">
                 <NavLink className="botonHome" as={NavLink} to="/home">

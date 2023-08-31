@@ -1,43 +1,72 @@
-import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from "./types";
+import {
+  CREATE_GAME,
+  ADD_GAME,
+  REMOVE_GAME,
+  ORDER_NAME,
+  ORDER_RATING,
+  ORDER_OWNED,
+  ORDER_RELEASED,
+  ORDER_ESRB_RATING,
+} from "./types";
 
 const initialState = {
-  myFavorites: [],
-  allCharacters: [],
+  myGames: [],
 };
 
 const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case ADD_FAV:
+    case CREATE_GAME:
       return {
         ...state,
-        myFavorites: payload,
-        allCharacters: payload
+        myGames: [...state.myGames, ...payload],
       };
-    case REMOVE_FAV:
+    case ADD_GAME:
       return {
         ...state,
-        myFavorites: payload,
-        allCharacters: payload
+        myGames: [...state.myGames, ...payload],
       };
-    case FILTER:
-      const personajesFiltrados = state.allCharacters.filter(
-        (character) => character.gender === payload
-      );
+    case REMOVE_GAME:
       return {
         ...state,
-        myFavorites: personajesFiltrados,
+        myGames: state.myGames.filter((game) => game.id !== payload),
       };
-    case ORDER:
-      const sortedFavorites = [...state.allCharacters];
-      if (payload === "A") {
-        sortedFavorites.sort((a, b) => (a.name > b.name ? 1 : -1));
-      } else if (payload === "D"){
-        sortedFavorites.sort((a, b) => (a.name < b.name ? 1 : -1));
-      }
+    case ORDER_NAME:
+      const sortedByName = state.myGames
+        .slice()
+        .sort((a, b) => a.name.localeCompare(b.name));
       return {
         ...state,
-        myFavorites: sortedFavorites,
+        myGames: sortedByName,
       };
+
+      case ORDER_RATING:
+        const sortedByRating = state.myGames.slice().sort((a, b) => b.rating_top - a.rating_top);
+        return {
+          ...state,
+          myGames: sortedByRating,
+        };
+      
+      case ORDER_OWNED:
+        const sortedBySales = state.myGames.slice().sort((a, b) => b.owned - a.owned);
+        return {
+          ...state,
+          myGames: sortedBySales,
+        };
+      
+      case ORDER_RELEASED:
+        const sortedByReleased = state.myGames.slice().sort((a, b) => new Date(b.released) - new Date(a.released));
+        return {
+          ...state,
+          myGames: sortedByReleased,
+        };
+      
+      case ORDER_ESRB_RATING:
+        const sortedByEsrbRating = state.myGames.slice().sort((a, b) => a.esrb_rating.localeCompare(b.esrb_rating));
+        return {
+          ...state,
+          myGames: sortedByEsrbRating,
+        };
+      
     default:
       return { ...state };
   }

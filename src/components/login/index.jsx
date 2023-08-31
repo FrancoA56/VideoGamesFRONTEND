@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Validate } from "../validation";
 import { NavLink } from "react-router-dom";
-import "./index.css"
+import batmanFondo from "../../utils/imagenes-videogames/batman_arkham_knight_by_vgwallpapers_d7j7i9y.jpg"
+import "./index.css";
 
 const Login = ({ login }) => {
   const [errors, setErrors] = useState({});
@@ -32,48 +33,54 @@ const Login = ({ login }) => {
   }
 
   return (
-    <>
-      <h1>Inicia Sesion!</h1>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="">Usuario:</label>
+    <div className="login-container" style={{backgroundImage: `url(${batmanFondo})`}}>
+      <div className="login-form">
+        <h1 className="titulo" style={{marginTop: '20px'}}>Log In</h1>
+        <form onSubmit={handleSubmit} className="form">
+          <div className="form-group">
+            <label className="label" htmlFor="user">User:</label>
             <input
+              className="inputs"
               type="text"
+              id="user"
               name="user"
               placeholder="Usuario"
               onChange={handleChange}
             />
-            {errors.usuario && <p>{errors.usuario}</p>}
+            {errors.usuario && <p className="errors">{errors.usuario}</p>}
           </div>
-          <div>
-            <label htmlFor="">Email:</label>
+          <div className="form-group">
+            <label className="label" htmlFor="email">Email:</label>
             <input
+              className="inputs"
               type="text"
+              id="email"
               name="email"
               placeholder="Email"
               onChange={handleChange}
             />
-            {errors.email && <p>{errors.email}</p>}
+            {errors.email && <p className="errors">{errors.email}</p>}
           </div>
-          <div>
-            <label htmlFor="">Contraseña:</label>
+          <div className="form-group">
+            <label className="label" htmlFor="password">Password:</label>
             <input
+              className="inputs"
               type="password"
+              id="password"
               name="password"
               placeholder="Contraseña"
               onChange={handleChange}
             />
-            {errors.password && <p>{errors.password}</p>}
+            {errors.password && <p className="errors">{errors.password}</p>}
           </div>
-          <button type="submit">Ingresar</button>
-          <div>
-            <div>No tienes cuenta?</div>
-            <NavLink to="/register">Registrate</NavLink>
+          <button className="ingresar" type="submit">Enter</button>
+          <div className="register-link">
+            <div className="crear-cuenta">Not Registered yet?</div>
+            <NavLink className="link" to="/register">Create account</NavLink>
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 

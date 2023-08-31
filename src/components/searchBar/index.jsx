@@ -22,7 +22,7 @@ const SearchBar = ({ onSearch }) => {
   return (
     <div className="search-bar">
       <input 
-        className="input"
+        className="input3"
         type="search"
         value={searchValue}
         onChange={handleOnChange}

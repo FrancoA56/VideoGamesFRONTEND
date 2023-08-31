@@ -9,7 +9,7 @@ const Game = (props) => {
 
   return (
     <>
-      <NavLink className="link" to={`/detail/${props.id}`}>
+      <NavLink className="linko" to={`/detail/${props.id}`}>
         <div className="game-card">
           {props.name && (
             <>

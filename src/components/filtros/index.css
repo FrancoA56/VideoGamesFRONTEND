@@ -1,9 +1,35 @@
 .filter-container {
   position: fixed;
-  top: 151px;
+  top: 150px;
   left: 0;
   width: 250px;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9); /* Cambia esto al color deseado */
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 999;
+  display: flex;
+  flex-direction: column;
+}
+
+.nombre2 {
+  color: rgb(255, 255, 255);
+  font-size: 40px;
+  margin-top: 100px;
+  box-shadow: 0 0 30px rgb(255, 255, 255);
+  border-radius: 30px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.botones2 {
+  width: 190px;
+  box-shadow: 0 0 30px rgb(255, 255, 255);
+  margin-top: 50px;
+  font-size: 25px;
+  margin-left: 30px;
+  background-color: rgb(163, 17, 17);
+  border-radius: 20px;
+  border: 2px solid black;
+  padding: 5px;
+  cursor: pointer;
+  color: #fff;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
