@@ -35,16 +35,16 @@ const Login = ({ login }) => {
   return (
     <div className="login-container" style={{backgroundImage: `url(${batmanFondo})`}}>
       <div className="login-form">
-        <h1 className="titulo" style={{marginTop: '20px'}}>Log In</h1>
+        <h1 className="titulo5" style={{marginTop: '20px'}}>Log In</h1>
         <form onSubmit={handleSubmit} className="form">
           <div className="form-group">
             <label className="label" htmlFor="user">User:</label>
             <input
-              className="inputs"
+              className="inputs2"
               type="text"
               id="user"
               name="user"
-              placeholder="Usuario"
+              placeholder="Username"
               onChange={handleChange}
             />
             {errors.usuario && <p className="errors">{errors.usuario}</p>}
@@ -52,7 +52,7 @@ const Login = ({ login }) => {
           <div className="form-group">
             <label className="label" htmlFor="email">Email:</label>
             <input
-              className="inputs"
+              className="inputs2"
               type="text"
               id="email"
               name="email"
@@ -64,11 +64,11 @@ const Login = ({ login }) => {
           <div className="form-group">
             <label className="label" htmlFor="password">Password:</label>
             <input
-              className="inputs"
+              className="inputs2"
               type="password"
               id="password"
               name="password"
-              placeholder="Contraseña"
+              placeholder="Password"
               onChange={handleChange}
             />
             {errors.password && <p className="errors">{errors.password}</p>}
@@ -76,7 +76,7 @@ const Login = ({ login }) => {
           <button className="ingresar" type="submit">Enter</button>
           <div className="register-link">
             <div className="crear-cuenta">Not Registered yet?</div>
-            <NavLink className="link" to="/register">Create account</NavLink>
+            <NavLink className="link5" to="/register">Create account</NavLink>
           </div>
         </form>
       </div>

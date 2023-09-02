@@ -5,6 +5,7 @@ import Login from "./components/login";
 import Filtros from "./components/filtros";
 import Nav from "./components/nav";
 import Games from "./components/games";
+import CreateGame from "./components/createGame";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { addGame } from "./Redux/actions";
@@ -17,8 +18,7 @@ function App() {
   const JUEGOS = useSelector((state) => state.myGames);
   const showNavLogin = location.pathname === "/login";
   const showNavRegister = location.pathname === "/register";
-  const showOnDetail = location.pathname === "/detail";
-  const showOnAbout = location.pathname === "/about";
+  const showOnDetail = location.pathname === "/detail/:id";
   const navigate = useNavigate();
   const [access, setAccess] = useState(false);
 
@@ -66,7 +66,7 @@ function App() {
       if (newGames.length > 0) {
         dispatch(addGame(newGames));
       } else {
-        window.alert("Todos los juegos buscados ya están en la lista.");
+        window.alert("The games searched were already loaded");
       }
     } catch (error) {
       window.alert(error.message);
@@ -76,7 +76,7 @@ function App() {
   return (
     <div className="App">
       {!showNavLogin && !showNavRegister && <Nav onSearch={onSearch} />}
-      {!showNavLogin && !showNavRegister && !showOnAbout && !showOnDetail && (
+      {!showNavLogin && !showNavRegister && !showOnDetail && (
         <Filtros />
       )}
       <Routes>
@@ -84,6 +84,8 @@ function App() {
         <Route path="/register" element={<Register register={register} />} />
         <Route path="/home" element={<Games />} />
         <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/createGame" element={<CreateGame />} />
+        
       </Routes>
     </div>
   );

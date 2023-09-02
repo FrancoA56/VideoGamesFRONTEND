@@ -8,7 +8,7 @@ const Game = (props) => {
   const formattedDate = date.toLocaleDateString(undefined, options);
 
   return (
-    <>
+    <div className="game-card-general">
       <NavLink className="linko" to={`/detail/${props.id}`}>
         <div className="game-card">
           {props.name && (
@@ -16,7 +16,7 @@ const Game = (props) => {
               <div className="game-details">
                 <p className="nombre">{props.name}</p>
                 <p className="released">Premier: {formattedDate}</p>
-                <p className="playtime">Playtime: {props.playtime}</p>
+                <p className="playtime">Playtime: {props.playtime} hs</p>
                 <p className="esrb_rating">ESRB: {props.esrb_rating}</p>
                 <p className="rating_top">{props.rating_top}</p>
               </div>
@@ -31,10 +31,10 @@ const Game = (props) => {
           )}
         </div>
       </NavLink>
-      <button className="cerrar" onClick={() => props.onClose(props.id)}>
-        X
+      <button className="cerrar2" onClick={() => props.onClose(props.id)}>
+        x
       </button>
-    </>
+    </div>
   );
 };
 

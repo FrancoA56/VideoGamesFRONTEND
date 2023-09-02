@@ -40,28 +40,52 @@
 }
 
 .game-card {
-  width: 700px;
-  height: 250px;
   display: flex;
-  margin: 20px;
   flex-direction: row;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   background-color: #00000069;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  justify-content: space-between;
-  box-shadow: 0 0 30px rgba(0, 0, 0);
+}
+
+.game-card-general {
+  width: 670px;
+  height: 250px;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: #00000083;
   transition: transform 0.3s;
+  box-shadow: 10px 0 40px rgb(0, 0, 0);
 }
 
-.game-card:hover {
-  transform: scale(1.2);
+.game-card-general:hover {
+  transform: scale(1.15);
 }
 
-.cerrar{
+.cerrar2{
   position: relative;
-  bottom: 275px;
-  left: 338px;
+  right: 40px;
+  border: none;
+  top: 8px;
   cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  height: 28px;
+  font-size: 23px;
+  font-style: italic;
+  padding-top: 0 !important;
+  padding-left: 8px !important;
+  padding-right: 10px !important;
+  padding-bottom: 30px !important;
+  box-shadow: -3px 5px 10px rgb(0, 0, 0, 0.8);
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.cerrar2:hover {
+  background-color: rgba(0, 0, 0, 0.8) ;
 }
 
 .linko {
@@ -83,7 +107,7 @@
   align-items: flex-start;
   flex-direction: column;
   justify-content: space-between;
-  width: 320px;
+  width: 300px;
 }
 
 .game-image {

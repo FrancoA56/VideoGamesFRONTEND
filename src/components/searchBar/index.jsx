@@ -27,7 +27,7 @@ const SearchBar = ({ onSearch }) => {
         value={searchValue}
         onChange={handleOnChange}
         onKeyDown={handleKeyPress}
-        placeholder="Insert Name"
+        placeholder="What game are you looking for?"
       />
       <button className="button" onClick={handleSearch}>
         <i className="material-icons">search</i>

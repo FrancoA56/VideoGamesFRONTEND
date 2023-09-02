@@ -4,7 +4,6 @@ import { useNavigate, NavLink } from "react-router-dom";
 import kratosFondo from "../../utils/imagenes-videogames/oil_painted_kratos_by_shadowxp6_d52hwd8.jpg";
 import "./index.css";
 
-
 const Register = ({ register }) => {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
@@ -34,7 +33,7 @@ const Register = ({ register }) => {
     try {
       await register(userData);
       if (userData) {
-        alert("Cuenta creada exitosamente.");
+        alert("Your account has been successfully created");
         navigate("/login");
       }
     } catch (error) {
@@ -43,24 +42,31 @@ const Register = ({ register }) => {
   }
 
   return (
-    <div className="login-container" style={{backgroundImage: `url(${kratosFondo})`}}>
+    <div
+      className="login-container"
+      style={{ backgroundImage: `url(${kratosFondo})` }}
+    >
       <div className="login-formo">
         <h1 className="titulos">Register</h1>
         <form onSubmit={handleSubmit} className="form">
           <div className="form-groupo">
-            <label className="label" htmlFor="user">User:</label>
+            <label className="label" htmlFor="user">
+              User:
+            </label>
             <input
               className="inputo"
               type="text"
               id="user"
               name="user"
-              placeholder="Usuario"
+              placeholder="Username"
               onChange={handleChange}
             />
             {errors.usuario && <p className="error">{errors.usuario}</p>}
           </div>
           <div className="form-groupo">
-            <label className="label" htmlFor="email">Email:</label>
+            <label className="label" htmlFor="email">
+              Email:
+            </label>
             <input
               className="inputo"
               type="text"
@@ -72,21 +78,27 @@ const Register = ({ register }) => {
             {errors.email && <p className="error">{errors.email}</p>}
           </div>
           <div className="form-groupo">
-            <label className="label" htmlFor="password">Password:</label>
+            <label className="label" htmlFor="password">
+              Password:
+            </label>
             <input
               className="inputo"
               type="password"
               id="password"
               name="password"
-              placeholder="Contraseña"
+              placeholder="Password"
               onChange={handleChange}
             />
             {errors.password && <p className="error">{errors.password}</p>}
           </div>
-          <button className="ingresar" type="submit">Create account</button>
+          <button className="ingresar2" type="submit">
+            Create account
+          </button>
           <div className="register-link">
             <div className="crear-cuenta">Already have an account?</div>
-            <NavLink className="link" to="/login">Log in</NavLink>
+            <NavLink className="link4" to="/login">
+              Log in
+            </NavLink>
           </div>
         </form>
       </div>

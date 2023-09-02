@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import "./index.css";
 
 const Detail = () => {
   const [isGame, setIsGame] = useState({});
@@ -17,27 +18,36 @@ const Detail = () => {
   }, [id]);
 
   return (
-    <div className="juego">
-      {isGame.name && (
-        <>
-          <div className="general-stats">
-            <p>{isGame.name}</p>
-            <p>Premier: {isGame.released}</p>
-            <p>Average rating: {isGame.rating}</p>
-            <p>Average playtime: {isGame.playtime}</p>
-            <p>Purchased: {isGame.owned}</p>
-            <p>ESRB rating: {isGame.esrb_rating}</p>
-          </div>
-          <div className="image-container">
-            <img className="image" src={isGame.background_image} alt={isGame.name} />
-          </div>
-          <div className="stats">
-            <p>Platforms: {isGame.platforms}</p>
-            <p>Genres: {isGame.genres}</p>
-            <p>Tags: {isGame.tags}</p>
-          </div>
-        </>
-      )}
+    <div className="general-detail">
+      <div className="juego-detail">
+        {isGame.name && (
+          <>
+            <div className="general-stats-detail">
+              <div className="nombre-detail-specific">{isGame.name}</div>
+              <p>Premier: {isGame.released}</p>
+              <p>Rating: {isGame.rating}</p>
+              <p>{isGame.playtime}hs playtime</p>
+              <p>{isGame.owned} times purchased</p>
+              <p>{isGame.esrb_rating}</p>
+            </div>
+            
+              <img
+                className="image-detail"
+                src={isGame.background_image}
+                alt={isGame.name}
+              />
+           
+            <div className="stats-detail">
+              <div className="specific-name-detail">Platforms: </div>
+              <div className="specific-stats-detail">{isGame.platforms}</div>
+              <div className="specific-name-detail">Genres: </div>
+              <div className="specific-stats-detail">{isGame.genres}</div>
+              <div className="specific-name-detail">Tags: </div>
+              <div className="specific-stats-detail">{isGame.tags}</div>
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };
