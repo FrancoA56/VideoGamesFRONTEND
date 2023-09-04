@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import axios from "axios";
 import {
+  addGame,
   orderByName,
   orderByRating,
   orderBySales,
@@ -33,9 +35,22 @@ const Filtros = () => {
     setAux(!aux);
     dispatch(orderByEsrbRating("esrb_rating"));
   };
+  const handleRated = async () => {
+    await axios(`http://localhost:3001/home`).then(({ data }) => {
+      console.log(data);
+      if (data && data.name) {
+        data.map((juego) => {
+          return dispatch(addGame(juego));
+        });
+      }
+    });
+  };
 
   return (
     <div className="filter-container">
+      <button className="botones2" onClick={handleRated}>
+        Add most rated
+      </button>
       <div className="nombre2">Order by...</div>
       <button className="botones2" onClick={handleName}>
         Name
