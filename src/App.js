@@ -54,7 +54,7 @@ function App() {
 
   async function onSearch(slug) {
     try {
-      const response = await axios(`${URL}home/${slug}`);
+      const response = await axios(`${URL}home/?SLUG=${slug}`);
       const { data } = response;
 
       // Verifico si algún juego con el mismo id ya está en el estado

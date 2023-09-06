@@ -30,7 +30,7 @@
   background-color: rgb(255, 0, 0, 0.5);
 }
 .input3:focus {
-  background-color: rgb(255, 0, 0, 0.8);
+  background-color: rgba(255, 0, 0, 0.571);
 }
 .input3::placeholder {
   color: #ffffff;

@@ -1,23 +1,15 @@
-.login-container {
-  background-size: cover;
-  background-position: center;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .titulo5 {
   color: rgb(255, 255, 255);
   position: relative;
   width: 50%;
+  height: auto;
   font-size: 50px;
   padding-bottom: 10px;
   left: 125px;
-  border: 2px solid black;
+  border: 2px solid rgb(0, 0, 0);
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.65);
+  box-shadow: 0 0 20px rgb(255, 255, 255);
 }
 
 .login-form {
@@ -49,7 +41,7 @@
   display: block;
   width: 114%;
   font-size: 30px;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-bottom: 10px;
   color: white;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -70,24 +62,20 @@
 .inputs2:-webkit-autofill {
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: #fff;
-}
-
-.errors {
-  color: red;
-  width: 115%;
+  -webkit-text-fill-color: #ffffff;
 }
 
 .ingresar {
-  background-color: #d4d4d4;
-  color: #000000;
+  background-color: rgba(0, 0, 0, 0.733);
+  color: #ffffff;
   font-size: 25px;
-  margin-top: 10px;
-  padding-top: 7px;
-  padding-bottom: 5px;
-  padding-left: 15px;
-  padding-right: 15px;
+  margin-top: 12px;
+  padding-top: 9px;
+  padding-bottom: 7px;
+  padding-left: 17px;
+  padding-right: 17px;
   border-radius: 15px;
+  border: 1px solid rgb(120, 118, 118);
   cursor: pointer;
   box-shadow: 0 0 30px rgb(0, 0, 0);
   transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out,
@@ -96,7 +84,7 @@
 
 .ingresar:hover{
   box-shadow: 0 0 20px rgb(255, 255, 255);
-  background-color: #000000d2;
+  background-color: rgba(0, 0, 0, 0.9);
   color: rgb(255, 255, 255);
 
 }
@@ -121,11 +109,12 @@
   padding-left: 12px;
   padding-right: 12px;
   padding-bottom: 7px;
-  padding-top: 7px;
-  background-color: #d4d4d4;
-  color: #000000;
+  padding-top: 4px;
+  background-color: rgba(0, 0, 0, 0.733);
+  color: #ffffff;
   position: relative;
   left: 70px;
+  border: 1px solid rgb(120, 118, 118);
   margin-top: 10px;
   box-shadow: 0 0 30px rgb(0, 0, 0);
   text-decoration: none;
@@ -134,8 +123,23 @@
 }
 
 .link5:hover{
-  background-color: #000000d2;
+  background-color: rgba(0, 0, 0, 0.9);
   color: rgb(255, 255, 255);
   box-shadow: 0 0 20px rgb(255, 255, 255);
 
+}
+
+.errors-login {
+  background-color: #f9baba;
+  color: #000000;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding: 5px;
+  font-size: 19px;
+  border: 1px solid black;
+  box-shadow: 0 0 20px rgb(255, 0, 0);
+  border-radius: 10px;
+  width: 40%;
+  position: absolute;
+  top: 28px;
+  left: 530px;
 }

@@ -4,19 +4,19 @@ export function Validate (imputs) {
     const passwordRegex = /^(?=.*\d).{6,10}$/;
     
     if (!imputs.user || imputs.user.length > 15) {
-      errors.user = '*Se requiere un nombre de usuario de entre 1 a 15 digitos';
+      errors.user = '*Username between 1 and 15 digits required';
     }
     if (!imputs.email || imputs.email.length > 35) {
-      errors.email = '*El correo electronico no debe estar vacio o tener mas de 35 caracteres';
+      errors.email = '*Email must not be empty';
     } else if (!emailRegex.test(imputs.email)) {
-      errors.email = '*Debe ser un correo electrónico';
+      errors.email = '*Must be an email format';
     }
     if (!imputs.password) {
-        errors.password = '*La contraseña no puede estar vacia';
+        errors.password = '*Password must not be empty';
     } else if (imputs.password.length < 6 || imputs.password.length > 10) {
-      errors.password = '*La contraseña debe tener entre 6 a 10 caracteres';
+      errors.password = '*Password between 6 and 10 digits required';
     } else if (!passwordRegex.test(imputs.password)) {
-        errors.password = '*La contraseña debe incluir un numero';
+        errors.password = '*Password must have a number';
     }
     return errors;
   };

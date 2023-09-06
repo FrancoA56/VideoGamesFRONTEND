@@ -54,42 +54,42 @@ const Register = ({ register }) => {
               User:
             </label>
             <input
-              className="inputo"
+              className="input-register"
               type="text"
               id="user"
               name="user"
               placeholder="Username"
               onChange={handleChange}
             />
-            {errors.usuario && <p className="error">{errors.usuario}</p>}
+            {errors.usuario && <p id="userR" className="errors-register">{errors.usuario}</p>}
           </div>
           <div className="form-groupo">
             <label className="label" htmlFor="email">
               Email:
             </label>
             <input
-              className="inputo"
+              className="input-register"
               type="text"
               id="email"
               name="email"
               placeholder="Email"
               onChange={handleChange}
             />
-            {errors.email && <p className="error">{errors.email}</p>}
+            {errors.email && <p id="emailR" className="errors-register">{errors.email}</p>}
           </div>
           <div className="form-groupo">
             <label className="label" htmlFor="password">
               Password:
             </label>
             <input
-              className="inputo"
+              className="input-register"
               type="password"
               id="password"
               name="password"
               placeholder="Password"
               onChange={handleChange}
             />
-            {errors.password && <p className="error">{errors.password}</p>}
+            {errors.password && <p id="passwordR" className="errors-register">{errors.password}</p>}
           </div>
           <button className="ingresar2" type="submit">
             Create account

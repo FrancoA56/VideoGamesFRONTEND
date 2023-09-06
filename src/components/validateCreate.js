@@ -4,9 +4,23 @@ export function ValidateCreate(imputs) {
   if (!imputs.name || imputs.name.length > 15) {
     errors.name = "A name between 1 and 15 digits is required";
   }
-  if (!imputs.rating_top) {
+  if (
+    !imputs.rating_top ||
+    !imputs.rating_top === 1 ||
+    !imputs.rating_top === 2 ||
+    !imputs.rating_top === 3 ||
+    !imputs.rating_top === 4 ||
+    !imputs.rating_top === 5
+  ) {
     errors.rating_top = "Rating must not be empty";
-  } else if (imputs.rating_top.length < 1 || imputs.rating_top.length > 5) {
+  }
+  if (
+    !imputs.rating_top === "1" ||
+    !imputs.rating_top === "2" ||
+    !imputs.rating_top === "3" ||
+    !imputs.rating_top === "4" ||
+    !imputs.rating_top === "5"
+  ) {
     errors.rating_top = "Must be a number between 1 and 5";
   }
   if (!imputs.playtime) {

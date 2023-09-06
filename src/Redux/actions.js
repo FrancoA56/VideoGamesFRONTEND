@@ -1,11 +1,17 @@
-import { CREATE_GAME,
+import {
+  CREATE_GAME,
   ADD_GAME,
+  WIPE_OUT,
+  BRING_GAMES,
   REMOVE_GAME,
   ORDER_NAME,
   ORDER_RATING,
   ORDER_OWNED,
   ORDER_RELEASED,
-  ORDER_ESRB_RATING } from "./types";
+  ORDER_ESRB_RATING,
+  FILTER_BY_PLATFORMS,
+  FILTER_BY_GENRES,
+} from "./types";
 import axios from "axios";
 
 const URL = "http://localhost:3001/";
@@ -25,7 +31,7 @@ export const createGame = (juego) => {
 };
 
 export const addGame = (data) => {
-  return  function (dispatch) {
+  return function (dispatch) {
     try {
       return dispatch({
         type: ADD_GAME,
@@ -37,11 +43,29 @@ export const addGame = (data) => {
   };
 };
 
+export const bringGames = () => {
+  return function (dispatch) {
+    try {
+      return dispatch({
+        type: BRING_GAMES,
+      });
+    } catch (error) {
+      window.alert(error.message);
+    }
+  };
+};
+
+export const wipeOut = () => {
+  return {
+    type: WIPE_OUT,
+  };
+};
+
 export const removeGame = (id) => {
-      return {
-        type: REMOVE_GAME,
-        payload: id,
-      };
+  return {
+    type: REMOVE_GAME,
+    payload: id,
+  };
 };
 
 export const orderByName = (name) => {
@@ -73,5 +97,17 @@ export const orderByEsrbRating = (esrb_rating) => {
   return {
     type: ORDER_ESRB_RATING,
     payload: esrb_rating,
+  };
+};
+export const filterByPlatform = (value) => {
+  return {
+    type: FILTER_BY_PLATFORMS,
+    payload: value,
+  };
+};
+export const filterByGenre = (value) => {
+  return {
+    type: FILTER_BY_GENRES,
+    payload: value,
   };
 };

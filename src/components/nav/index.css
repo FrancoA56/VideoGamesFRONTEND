@@ -29,7 +29,6 @@
 
 #agregar{
   position: relative;
-  right: 1px;
   top: 1px;
 }
 
@@ -40,7 +39,7 @@
 }
 
 .botonHome {
-  background-color: rgba(255, 0, 0, 0.5);
+  background-color: rgba(255, 0, 0, 0.35);
   color: rgb(0, 0, 0);
   border: 4px solid rgba(0, 0, 0, 0.5);
   border-top-right-radius: 10px;
@@ -57,10 +56,15 @@
   font-size: 25px;
   box-shadow: 0 0 10px rgb(255, 255, 255);
   z-index: 1099;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+.botonHome:hover{
+  transform: scale(1.1);
+  background-color: rgba(255, 0, 0, 0.5);
 }
 
 .botonAgregarJuego {
-  background-color: rgba(255, 0, 0, 0.5);
+  background-color: rgba(255, 0, 0, 0.35);
   color: rgb(0, 0, 0);
   border: 4px solid rgba(0, 0, 0, 0.5);
   border-top-right-radius: 10px;
@@ -77,10 +81,15 @@
   font-size: 25px;
   box-shadow: 0 0 10px rgb(255, 255, 255);
   z-index: 1099;
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+.botonAgregarJuego:hover{
+  transform: scale(1.1);
+  background-color: rgba(255, 0, 0, 0.5);
 }
 
 .botonSalir {
-  background-color: rgb(255, 0, 0, 0.5);
+  background-color: rgba(255, 0, 0, 0.35);
   color: rgb(0, 0, 0);
   border: 4px solid rgba(0, 0, 0, 0.5);
   border-top-right-radius: 10px;
@@ -97,7 +106,39 @@
   color: #fff;
   font-size: 25px;
   box-shadow: 0 0 10px rgb(255, 255, 255);
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+.botonSalir:hover{
+  transform: scale(1.1);
+  background-color: rgba(255, 0, 0, 0.5);
+}
+.botonBorrar {
+  background-color: rgba(255, 0, 0, 0.35);
+  color: rgb(0, 0, 0);
+  border: 4px solid rgba(0, 0, 0, 0.5);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 25px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding: 8px 16px;
+  position: relative;
+  right: 119px;
 
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  font-size: 25px;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+  transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+.botonBorrar:hover{
+  transform: scale(1.1);
+  background-color: rgba(255, 0, 0, 0.5);
+}
+#borrar{
+  position: relative;
+  top: 1px;
 }
 
 .gamescon {

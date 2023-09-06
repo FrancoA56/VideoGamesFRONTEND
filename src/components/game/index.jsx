@@ -9,15 +9,55 @@ const Game = (props) => {
   const estrellas = (rate = props.rating_top) => {
     switch (rate) {
       case 5:
-        return <div>🌟🌟🌟🌟🌟</div>;
+        return (
+          <>
+            <i id="estrellaConBorde" className="material-icons">star</i>
+            <i id="estrellaConBorde" className="material-icons">star</i>
+            <i id="estrellaConBorde" className="material-icons">star</i>
+            <i id="estrellaConBorde" className="material-icons">star</i>
+            <i id="estrellaConBorde" className="material-icons">star</i>
+          </>
+        );
       case 4:
-        return <div>🌟🌟🌟🌟</div>;
+        return (
+          <>
+            <i id="estrellaConBorde" className="material-icons">star</i>
+            <i id="estrellaConBorde" className="material-icons">star</i>
+            <i id="estrellaConBorde" className="material-icons">star</i>
+            <i id="estrellaConBorde" className="material-icons">star</i>
+            <i id="estrellaSinBorde" className="material-icons">star_border</i>
+          </>
+        );
       case 3:
-        return <div>🌟🌟🌟</div>;
+        return (
+          <>
+            <i id="estrellaConBorde" className="material-icons">star</i>
+            <i id="estrellaConBorde" className="material-icons">star</i>
+            <i id="estrellaConBorde" className="material-icons">star</i>
+            <i id="estrellaSinBorde" className="material-icons">star_border</i>{" "}
+            <i id="estrellaSinBorde" className="material-icons">star_border</i>{" "}
+          </>
+        );
       case 2:
-        return <div>🌟🌟</div>;
+        return (
+          <>
+            <i id="estrellaConBorde" className="material-icons">star</i>
+            <i id="estrellaConBorde" className="material-icons">star</i>
+            <i id="estrellaSinBorde"  className="material-icons">star_border</i>
+            <i id="estrellaSinBorde"  className="material-icons">star_border</i>
+            <i id="estrellaSinBorde"  className="material-icons">star_border</i>
+          </>
+        );
       case 1:
-        return <div>🌟</div>;
+        return (
+          <>
+            <i id="estrellaConBorde" className="material-icons">star</i>
+            <i id="estrellaSinBorde" className="material-icons">star_border</i>
+            <i id="estrellaSinBorde" className="material-icons">star_border</i>
+            <i id="estrellaSinBorde" className="material-icons">star_border</i>
+            <i id="estrellaSinBorde" className="material-icons">star_border</i>
+          </>
+        );
       default:
         break;
     }

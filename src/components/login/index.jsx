@@ -47,7 +47,7 @@ const Login = ({ login }) => {
               placeholder="Username"
               onChange={handleChange}
             />
-            {errors.usuario && <p className="errors">{errors.usuario}</p>}
+            {errors.usuario && <p className="errors-login">{errors.usuario}</p>}
           </div>
           <div className="form-group">
             <label className="label" htmlFor="email">Email:</label>
@@ -59,7 +59,7 @@ const Login = ({ login }) => {
               placeholder="Email"
               onChange={handleChange}
             />
-            {errors.email && <p className="errors">{errors.email}</p>}
+            {errors.email && <p className="errors-login">{errors.email}</p>}
           </div>
           <div className="form-group">
             <label className="label" htmlFor="password">Password:</label>
@@ -71,7 +71,7 @@ const Login = ({ login }) => {
               placeholder="Password"
               onChange={handleChange}
             />
-            {errors.password && <p className="errors">{errors.password}</p>}
+            {errors.password && <p className="errors-login">{errors.password}</p>}
           </div>
           <button className="ingresar" type="submit">Enter</button>
           <div className="register-link">

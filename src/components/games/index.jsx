@@ -10,7 +10,6 @@ const Games = () => {
   const onClose = (id) => {
     dispatch(removeGame(id));
   };
-
   return (
     <>
       <div className="background" />

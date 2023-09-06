@@ -12,7 +12,7 @@
 .form-container-create {
   width: 30%;
   height: 80%;
-  background-color: rgba(95, 35, 35, 0.531);
+  background-color: rgba(64, 4, 4, 0.708);
   position: relative;
   left: 15%;
   top: 190px;
@@ -48,8 +48,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  bottom: 40px;
-  right: 40px;
+ bottom: 50px;
 }
 
 .form-group-create {
@@ -73,8 +72,8 @@
   color: #ffffff;
   background-color: rgba(85, 7, 7, 0.9);
   border-radius: 10px;
-  border: 3px solid black;
-  box-shadow: 0px 0px 10px rgb(255, 255, 255);
+  border: 3px solid rgba(255, 255, 255, 0.426);
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.309);
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 
 }
@@ -103,20 +102,20 @@
 .boton-create {
   width: 30%;
   font-size: 25px;
-  border: 2px solid black;
+  border: 2px solid rgb(199, 187, 187);
   border-radius: 20px;
   padding-left: 15px;
   padding-top: 7px;
   padding-right: 15px;
   padding-bottom: 7px;
-  background-color: rgba(85, 8, 8, 0.9);
+  background-color: rgba(85, 8, 8, 0.771);
   color: #fff;
   position: relative;
   left: 255px;
   margin-top: 35px;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 0 20px rgb(0, 0, 0);
+  box-shadow: 10px 10px 50px rgb(0, 0, 0);
   transition: background-color 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
 }
 
@@ -128,38 +127,38 @@
 #errors-create1 {
   width: 130px;
   position: absolute;
-  left: 640px;
+  left: 678px;
   top: 4.5%;
 }
 #errors-create2 {
   width: 130px;
   position: absolute;
-  left: 640px;
+  left: 678px;
   top: 31.5%;
 }
 #errors-create3 {
   width: 130px;
   position: absolute;
-  left: 640px;
+  left: 678px;
   top: 43%;
 }
 #errors-create4 {
   width: 130px;
   position: absolute;
-  left: 640px;
+  left: 678px;
   top: 56%;
 }
 #errors-create5 {
   width: 130px;
   position: absolute;
-  left: 640px;
+  left: 678px;
   top: 70%;
 }
 #errors-create6 {
   width: 130px;
   position: absolute;
-  left: 640px;
-  top: 82%;
+  left: 678px;
+  top: 82.5%;
 }
 
 .errors-create {

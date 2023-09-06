@@ -155,13 +155,13 @@ function CreateGame() {
               <p id="errors-create4" className="errors-create">{errorsCreate.esrb_rating}</p>
             )}
 
-            <label className="label-create">Several genres</label>
+            <label className="label-create">Genre</label>
             <input
               type="text"
               className="inputs-create"
               id="genres"
               name="genres"
-              placeholder="Ej: Action, Indie, Shooter, etc..."
+              placeholder="Action, Indie, Shooter, etc..."
               onChange={handleChange}
             />
             {errorsCreate.genres && (
@@ -174,8 +174,8 @@ function CreateGame() {
               className="inputs-create"
               id="background_image"
               name="background_image"
-              placeholder="Ej: https://.jpg"
-              onChange={handleChange}
+              placeholder="You can drag and drop an img"
+              onChange={handleChange}a
             />
             {errorsCreate.background_image && (
               <p id="errors-create6" className="errors-create">{errorsCreate.background_image}</p>
