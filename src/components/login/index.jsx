@@ -46,6 +46,7 @@ const Login = ({ login }) => {
               name="user"
               placeholder="Username"
               onChange={handleChange}
+              autoComplete="off"
             />
             {errors.usuario && <p className="errors-login">{errors.usuario}</p>}
           </div>
@@ -58,6 +59,7 @@ const Login = ({ login }) => {
               name="email"
               placeholder="Email"
               onChange={handleChange}
+              autoComplete="off"
             />
             {errors.email && <p className="errors-login">{errors.email}</p>}
           </div>
@@ -70,6 +72,7 @@ const Login = ({ login }) => {
               name="password"
               placeholder="Password"
               onChange={handleChange}
+              autoComplete="off"
             />
             {errors.password && <p className="errors-login">{errors.password}</p>}
           </div>

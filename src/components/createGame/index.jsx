@@ -8,18 +8,39 @@ import { addGame } from "../../Redux/actions";
 import "./index.css";
 
 function CreateGame() {
-  // const [draggedImages, setDraggedImages] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [isGenres, setIsGenres] = useState(false);
+  const [genreId, setGenreId] = useState([]);
+  const [genreName, setGenreName] = useState([]);
   const [errorsCreate, setErrorsCreate] = useState({});
+
   const [createGame, setCreateGame] = useState({
     name: "",
     rating_top: "",
     playtime: "",
     esrb_rating: "",
-    genres: "",
+    genreIds: [],
     background_image: "",
   });
+
+  const handleGenres = () => {
+    setIsGenres(true);
+  };
+  const cerrarHandleGenres = () => {
+    setIsGenres(false);
+  };
+  const handleDelete= () => {
+    setGenreName([]);
+    setGenreId([]);
+  };
+
+  const handleGenresButton = (name, id) => {
+    if (!genreId.includes(id)) {
+      setGenreName([...genreName, name, ", "]);
+      setGenreId([...genreId, id]);
+    }
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -43,7 +64,7 @@ function CreateGame() {
       const rating_top = event.target.elements.rating_top.value;
       const playtime = event.target.elements.playtime.value;
       const esrb_rating = event.target.elements.esrb_rating.value;
-      const genres = event.target.elements.genres.value;
+      const genreIds = genreId;
       const background_image = event.target.elements.background_image.value;
       const URL = "http://localhost:3001/createGame";
       const { data } = await axios.post(URL, {
@@ -52,7 +73,7 @@ function CreateGame() {
         rating_top,
         playtime,
         esrb_rating,
-        genres,
+        genreIds,
         background_image,
       });
       if (data) {
@@ -64,31 +85,6 @@ function CreateGame() {
       console.log(error.message);
     }
   };
-  // const handleDragOver = (e) => {
-  //   e.preventDefault();
-  //   console.log("dragover");
-  // };
-  // const handleDrop = (e) => {
-  //   e.preventDefault();
-  //   const files = e.dataTransfer.files;
-
-  //   if (files && files.length > 0) {
-  //     const images = Array.from(files).filter((file) =>
-  //       file.type.startsWith("image/")
-  //     );
-
-  //     // Actualizar el estado con la imágen arrastrada
-  //     setDraggedImages(images);
-
-  //     // Mostrar las imágenes en el elemento #caja
-  //     const caja = document.querySelector("#caja");
-  //     images.forEach((image) => {
-  //       const imgElement = document.createElement("img");
-  //       imgElement.src = URL.createObjectURL(image);
-  //       caja.appendChild(imgElement);
-  //     });
-  //   }
-  // };
 
   return (
     <div className="contenedor-general-create">
@@ -106,7 +102,9 @@ function CreateGame() {
               onChange={handleChange}
             />
             {errorsCreate.name && (
-              <p id="errors-create1" className="errors-create">{errorsCreate.name}</p>
+              <p id="errors-create1" className="errors-create">
+                {errorsCreate.name}
+              </p>
             )}
             <label className="label-create">Release date:</label>
             <input
@@ -126,7 +124,9 @@ function CreateGame() {
               onChange={handleChange}
             />
             {errorsCreate.rating_top && (
-              <p id="errors-create2" className="errors-create">{errorsCreate.rating_top}</p>
+              <p id="errors-create2" className="errors-create">
+                {errorsCreate.rating_top}
+              </p>
             )}
 
             <label className="label-create">Average playtime:</label>
@@ -139,7 +139,9 @@ function CreateGame() {
               onChange={handleChange}
             />
             {errorsCreate.playtime && (
-              <p id="errors-create3" className="errors-create">{errorsCreate.playtime}</p>
+              <p id="errors-create3" className="errors-create">
+                {errorsCreate.playtime}
+              </p>
             )}
 
             <label className="label-create">ESRB rating</label>
@@ -152,22 +154,13 @@ function CreateGame() {
               onChange={handleChange}
             />
             {errorsCreate.esrb_rating && (
-              <p id="errors-create4" className="errors-create">{errorsCreate.esrb_rating}</p>
+              <p id="errors-create4" className="errors-create">
+                {errorsCreate.esrb_rating}
+              </p>
             )}
 
             <label className="label-create">Genre</label>
-            <input
-              type="text"
-              className="inputs-create"
-              id="genres"
-              name="genres"
-              placeholder="Action, Indie, Shooter, etc..."
-              onChange={handleChange}
-            />
-            {errorsCreate.genres && (
-              <p id="errors-create5" className="errors-create">{errorsCreate.genres}</p>
-            )}
-
+            <div className="contenedor-create-genre">{genreName}</div>
             <label className="label-create">URL of an image</label>
             <input
               type="text"
@@ -175,10 +168,13 @@ function CreateGame() {
               id="background_image"
               name="background_image"
               placeholder="You can drag and drop an img"
-              onChange={handleChange}a
+              onChange={handleChange}
+              a
             />
             {errorsCreate.background_image && (
-              <p id="errors-create6" className="errors-create">{errorsCreate.background_image}</p>
+              <p id="errors-create6" className="errors-create">
+                {errorsCreate.background_image}
+              </p>
             )}
           </div>
           <button className="boton-create" type="submit">
@@ -186,21 +182,112 @@ function CreateGame() {
           </button>
         </form>
       </div>
-      {/* <div className="caja-container-create">
-        {!draggedImages ? (
-          <div>Drag an image</div>
-        ) : (
-          draggedImages.map((image, index) => (
-            <div
-              id="caja"
-              key={index}
-              handleDragOver={handleDragOver}
-              handleDrop={handleDrop}
-            />
-            
-          ))
-        )}
-      </div> */}
+      {genreId.length && (
+        <button className="boton-borrar-genre-create" onClick={handleDelete}>
+          <i id="borrar-genre-create" className="material-icons">
+            delete
+          </i>
+        </button>
+      )}
+      {!isGenres ? (
+        <button className="boton-agregar-genre-create" onClick={handleGenres}>
+          <i id="agregar-genre-create" className="material-icons">
+            add
+          </i>
+        </button>
+      ) : (
+        <button
+          className="boton-agregar-genre-create"
+          onClick={cerrarHandleGenres}
+        >
+          <i id="cerrar-genre-create" className="material-icons">
+            close
+          </i>
+        </button>
+      )}
+      {isGenres && (
+        <div className="contenedor-botonera-create">
+          <button
+            className="boton-create-genres"
+            onClick={() => handleGenresButton("Action", 4)}
+          >
+            Action
+          </button>
+          <button
+            className="boton-create-genres"
+            onClick={() => handleGenresButton("Indie", 51)}
+          >
+            Indie
+          </button>
+          <button
+            className="boton-create-genres"
+            onClick={() => handleGenresButton("Adventure", 3)}
+          >
+            Adventure
+          </button>
+          <button
+            className="boton-create-genres"
+            onClick={() => handleGenresButton("RPG", 5)}
+          >
+            RPG
+          </button>
+          <button
+            className="boton-create-genres"
+            onClick={() => handleGenresButton("Shooter", 2)}
+          >
+            Shooter
+          </button>
+          <button
+            className="boton-create-genres"
+            onClick={() => handleGenresButton("Racing", 1)}
+          >
+            Racing
+          </button>
+          <button
+            className="boton-create-genres"
+            onClick={() => handleGenresButton("Sports", 15)}
+          >
+            Sports
+          </button>
+          <button
+            className="boton-create-genres"
+            onClick={() => handleGenresButton("Fighting", 6)}
+          >
+            Fighting
+          </button>
+          <button
+            className="boton-create-genres"
+            onClick={() => handleGenresButton("Arcade", 11)}
+          >
+            Arcade
+          </button>
+          <button
+            className="boton-create-genres"
+            onClick={() => handleGenresButton("Card", 17)}
+          >
+            Card
+          </button>
+          <button
+            className="boton-create-genres"
+            onClick={() => handleGenresButton("Educational", 34)}
+          >
+            Educational
+          </button>
+          <button
+            className="boton-create-genres"
+            onClick={() => handleGenresButton("Casual", 40)}
+          >
+            Casual
+          </button>
+          <button
+            id="boton-puzzle"
+            className="boton-create-genres"
+            onClick={() => handleGenresButton("Puzzle", 7)}
+          >
+            Puzzle
+          </button>
+        </div>
+      )}
     </div>
   );
 }

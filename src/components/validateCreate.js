@@ -29,9 +29,6 @@ export function ValidateCreate(imputs) {
   if (!imputs.esrb_rating) {
     errors.esrb_rating = "ESRB rating must not be empty";
   }
-  if (!imputs.genres) {
-    errors.genres = "Genres must not be empty";
-  }
   if (!imputs.background_image) {
     errors.background_image = "Image must not be empty";
   }

@@ -18,7 +18,7 @@ const Nav = ({ onSearch }) => {
               <h1 className="gamescon">GamesCon!</h1>
               {showSearchBar && <SearchBar className="search-bar" onSearch={onSearch} />}
               <div className="botones">
-                <button className="botonBorrar" onClick={handleWipeOut} title="Exit">
+                <button className="botonBorrar" onClick={handleWipeOut} title="Clear search">
                 <i id="borrar" className="material-icons">delete</i>
                 </button>
               <NavLink className="botonAgregarJuego" as={NavLink} to="/createGame" title="Create game">

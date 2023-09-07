@@ -33,6 +33,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
       const iteratedAllGames = payload.filter((juego) => {
         return !state.allMyGames.some((JUEGO) => JUEGO.id === juego.id);
       });
+      console.log(state.allMyGames);
       return {
         ...state,
         myGames: [...state.myGames, ...iteratedGames],
